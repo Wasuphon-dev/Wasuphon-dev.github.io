@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Wasuphon Thongsopon (Fluk) - Full Stack Developer & Programmer Portfolio">
+    <title>Wasuphon | Developer Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- ========== FONTS ========== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- ========== ICONS (Lucide via CDN) ========== -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lucide-static@latest/font/lucide.min.css">
+</head>
+<body>
+
+    <!-- ========================================== -->
+    <!-- LOADING SCREEN                              -->
+    <!-- ========================================== -->
+    <div id="loader" class="loader">
+        <div class="loader-content">
+            <div class="loader-logo">FLUK<span>.dev</span></div>
+            <div class="loader-bar"><div class="loader-bar-fill"></div></div>
+            <div class="loader-text">Initializing...</div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- CUSTOM CURSOR                               -->
+    <!-- ========================================== -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- ========================================== -->
+    <!-- SCROLL PROGRESS BAR                         -->
+    <!-- ========================================== -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- ========================================== -->
+    <!-- NAVIGATION                                  -->
+    <!-- ========================================== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <!-- === EDIT YOUR NAME/LOGO HERE === -->
+            <a href="#hero" class="nav-logo">FLUK<span>.dev</span></a>
+            <div class="nav-links" id="navLinks">
+                <a href="#about" class="nav-link">About</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#contact" class="nav-link nav-link-btn">Contact</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ========================================== -->
+    <!-- HERO SECTION                                -->
+    <!-- ========================================== -->
+    <section id="hero" class="hero">
+        <canvas id="particleCanvas" class="hero-particles"></canvas>
+        <div class="hero-grid-bg"></div>
+        <div class="hero-content" data-parallax="0.05">
+            <div class="hero-badge" data-reveal="fade-down">
+                <span>READY_TO_BUILD_2026</span>
+            </div>
+            <!-- === EDIT YOUR HEADLINE HERE === -->
+            <h1 class="hero-title" data-reveal="fade-up">
+                วสุพล ทองโสภณ<br>
+                <span class="gradient-text">Fluk.dev</span>
+            </h1>
+            <!-- === EDIT YOUR TAGLINE HERE === -->
+            <div class="hero-tagline" data-reveal="fade-up" data-delay="200">
+                <span class="tagline-prefix">&gt;</span>
+                <span id="typingText" class="typing-text"></span>
+                <span class="typing-cursor">|</span>
+            </div>
+            <p class="hero-description" data-reveal="fade-up" data-delay="400">
+                Full Stack Developer & Programmer ที่รักการเรียนรู้<br>
+                ออกแบบกราฟิก ดีไซน์ และ UX/UI
+            </p>
+            <div class="hero-buttons" data-reveal="fade-up" data-delay="600">
+                <a href="#projects" class="btn btn-primary">
+                    <span>View Projects</span>
+                </a>
+                <a href="#contact" class="btn btn-outline">
+                    <span>Get in Touch</span>
+                </a>
+            </div>
+        </div>
+        <!-- Scrolling image strip at bottom -->
+        <div class="hero-image-strip">
+            <div class="strip-track">
+                <!-- These images auto-scroll. Replace src with your project screenshots -->
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Project 1"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Project 2"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=250&fit=crop" alt="Project 3"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop" alt="Project 4"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=250&fit=crop" alt="Project 5"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop" alt="Project 6"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=250&fit=crop" alt="Project 7"></div>
+                <div class="strip-img"><img src="https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=400&h=250&fit=crop" alt="Project 8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- ABOUT SECTION                               -->
+    <!-- ========================================== -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-label" data-reveal="fade-right">ABOUT_ME</div>
+            <h2 class="section-title" data-reveal="fade-right" data-delay="100">Who I Am</h2>
+            <div class="about-grid">
+                <div class="about-image-wrapper" data-reveal="fade-right" data-delay="200">
+                    <!-- === YOUR PHOTO === -->
+                    <div class="about-image" id="aboutImage">
+                        <img src="fluk.jpg" alt="Wasuphon Thongsopon - Fluk">
+                    </div>
+                </div>
+                <div class="about-info" data-reveal="fade-left" data-delay="300">
+                    <!-- === BIO === -->
+                    <p class="about-bio">
+                        สวัสดีครับ ผมชื่อ วสุพล ทองโสภณ (ฟลุ้ค) อายุ 22 ปี<br>
+                        จบการศึกษาจากวิทยาลัยเทคโนโลยีพระมหาไถ่ พัทยา สาขาเทคโนโลยีธุรกิจดิจิทัล (ปวส.)
+                        มีประสบการณ์ทำงานจริงในตำแหน่ง Programmer ที่ อีฮงมดแดงมอเตอร์ ลีส จำกัด มหาสารคาม
+                        ผมชอบการออกแบบกราฟิก ดีไซน์ และ UX/UI รวมถึงหาความรู้ใส่ตัวเองอยู่เสมอ
+                        เข้ากับเพื่อนร่วมงานได้ดี และรับแรงกดดันจากการทำงานได้
+                    </p>
+                    <div class="about-social-links">
+                        <!-- === SOCIAL LINKS === -->
+                        <a href="https://github.com" target="_blank" class="social-badge">GITHUB</a>
+                        <a href="https://facebook.com" target="_blank" class="social-badge">FACEBOOK</a>
+                        <a href="https://line.me" target="_blank" class="social-badge">LINE</a>
+                        <a href="tel:0611321725" class="social-badge">📞 061-132-1725</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- SKILLS SECTION                              -->
+    <!-- ========================================== -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-label" data-reveal="fade-right">SKILL_SET</div>
+            <h2 class="section-title" data-reveal="fade-right" data-delay="100">Tech Stack</h2>
+
+            <!-- ===== SKILL ICON GRID WITH FILTERS ===== -->
+            <div class="skill-icon-filters" data-reveal="fade-up" data-delay="150">
+                <button class="skill-filter-btn active" data-skill-filter="all">All</button>
+                <button class="skill-filter-btn" data-skill-filter="frontend">Frontend Development</button>
+                <button class="skill-filter-btn" data-skill-filter="backend">Backend Development</button>
+                <button class="skill-filter-btn" data-skill-filter="tools">Development Tools</button>
+            </div>
+            <div class="skill-icon-grid" id="skillIconGrid" data-reveal="fade-up" data-delay="250">
+                <!-- Icons rendered by JS -->
+            </div>
+
+            <!-- ===== DETAILED SKILL BARS (original) ===== -->
+            <div class="section-label skill-bars-label" data-reveal="fade-right" data-delay="100" style="margin-top: 80px;">PROFICIENCY</div>
+            <h3 class="skill-bars-subtitle" data-reveal="fade-right" data-delay="150">Skill Levels</h3>
+            <div class="skills-grid">
+                <!-- ===== FRONTEND SKILLS ===== -->
+                <div class="skill-card glass-card" data-tilt data-reveal="fade-up" data-delay="200">
+                    <div class="skill-card-header">
+                        <span class="skill-category-label">CLIENT_SIDE</span>
+                        <span class="skill-category-title">Frontend</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">&lt;/&gt;</span><span class="skill-name">HTML5</span></div>
+                            <span class="skill-percent">85%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="85" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">✦</span><span class="skill-name">CSS3</span></div>
+                            <span class="skill-percent">80%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="80" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⬡</span><span class="skill-name">JavaScript</span></div>
+                            <span class="skill-percent">75%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="75" style="--bar-color: var(--accent-purple)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⊞</span><span class="skill-name">Bootstrap</span></div>
+                            <span class="skill-percent">75%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="75" style="--bar-color: var(--accent-pink)"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== BACKEND & DATA SKILLS ===== -->
+                <div class="skill-card glass-card" data-tilt data-reveal="fade-up" data-delay="350">
+                    <div class="skill-card-header">
+                        <span class="skill-category-label">SERVER_SIDE</span>
+                        <span class="skill-category-title">Backend &amp; Data</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⊡</span><span class="skill-name">PHP</span></div>
+                            <span class="skill-percent">70%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">&gt;_</span><span class="skill-name">Python</span></div>
+                            <span class="skill-percent">65%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="65" style="--bar-color: var(--accent-purple)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⊟</span><span class="skill-name">MySQL</span></div>
+                            <span class="skill-percent">70%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">◈</span><span class="skill-name">Power BI</span></div>
+                            <span class="skill-percent">70%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="70" style="--bar-color: var(--accent-pink)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⊕</span><span class="skill-name">Power Apps</span></div>
+                            <span class="skill-percent">65%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="65" style="--bar-color: var(--accent-purple)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⚡</span><span class="skill-name">Power Automate</span></div>
+                            <span class="skill-percent">65%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="65" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ===== TOOLS & DESIGN ===== -->
+                <div class="skill-card glass-card" data-tilt data-reveal="fade-up" data-delay="500">
+                    <div class="skill-card-header">
+                        <span class="skill-category-label">CREATIVE_TOOLS</span>
+                        <span class="skill-category-title">Tools &amp; Design</span>
+                    </div>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⊞</span><span class="skill-name">Microsoft Office</span></div>
+                            <span class="skill-percent">85%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="85" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">◇</span><span class="skill-name">Photoshop</span></div>
+                            <span class="skill-percent">80%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="80" style="--bar-color: var(--accent-purple)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">◆</span><span class="skill-name">Canva</span></div>
+                            <span class="skill-percent">85%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="85" style="--bar-color: var(--accent-pink)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">▶</span><span class="skill-name">CapCut</span></div>
+                            <span class="skill-percent">75%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="75" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">&lt;/&gt;</span><span class="skill-name">VS Code</span></div>
+                            <span class="skill-percent">90%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="90" style="--bar-color: var(--accent-blue)"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span class="skill-icon">⊡</span><span class="skill-name">XAMPP</span></div>
+                            <span class="skill-percent">80%</span>
+                            <div class="skill-bar"><div class="skill-bar-fill" data-width="80" style="--bar-color: var(--accent-purple)"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- PROJECTS SECTION                            -->
+    <!-- ========================================== -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header-row">
+                <div>
+                    <div class="section-label" data-reveal="fade-right">SELECTED_WORKS</div>
+                    <h2 class="section-title" data-reveal="fade-right" data-delay="100">Featured Projects</h2>
+                </div>
+                <div class="project-filters" data-reveal="fade-left" data-delay="200">
+                    <button class="filter-btn active" data-filter="all">ALL</button>
+                    <button class="filter-btn" data-filter="web">WEB</button>
+                    <button class="filter-btn" data-filter="app">APP</button>
+                    <button class="filter-btn" data-filter="system">SYSTEM</button>
+                </div>
+            </div>
+            <!-- Project cards are rendered by JavaScript from the projects data array -->
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Cards injected by script.js -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- EXPERIENCE SECTION                          -->
+    <!-- ========================================== -->
+    <section id="experience" class="section experience">
+        <div class="container">
+            <div class="section-label" data-reveal="fade-right">CAREER_PATH</div>
+            <h2 class="section-title" data-reveal="fade-right" data-delay="100">Experience</h2>
+            <!-- === EXPERIENCE DATA === -->
+            <div class="timeline">
+                <div class="timeline-item left" data-reveal="fade-right" data-delay="200">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">💼</span> 2024 - 2025</div>
+                        <h3 class="timeline-role">Programmer (ทำงานจริง)</h3>
+                        <p class="timeline-company">อีฮงมดแดงมอเตอร์ ลีส จำกัด, มหาสารคาม</p>
+                        <p class="timeline-desc">หลังจบฝึกงาน ได้รับการบรรจุทำงานจริงในตำแหน่ง Programmer ระยะเวลา 1 ปี พัฒนาระบบ Full Stack ให้กับองค์กร</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-reveal="fade-left" data-delay="300">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">💼</span> 2024</div>
+                        <h3 class="timeline-role">Programmer (ฝึกงาน)</h3>
+                        <p class="timeline-company">อีฮงมดแดงมอเตอร์ ลีส จำกัด, มหาสารคาม</p>
+                        <p class="timeline-desc">ฝึกงานตำแหน่ง Programmer เรียนรู้การพัฒนาระบบจริงในองค์กร ก่อนได้รับการบรรจุเป็นพนักงานประจำ</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-reveal="fade-right" data-delay="400">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">�</span> 2021 - 2022</div>
+                        <h3 class="timeline-role">IT Support (ฝึกงาน)</h3>
+                        <p class="timeline-company">โรงพยาบาลเกษมราษฎร์ สระบุรี</p>
+                        <p class="timeline-desc">ฝึกงาน 3 เดือน ตำแหน่งเทคโนโลยีสารสนเทศ ดูแลระบบ IT Support</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-reveal="fade-left" data-delay="500">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">🏭</span> 2022</div>
+                        <h3 class="timeline-role">ช่างซ่อมบำรุง (ฝึกงาน)</h3>
+                        <p class="timeline-company">โรงงาน สง่า</p>
+                        <p class="timeline-desc">ฝึกงาน 6 เดือน ตำแหน่งช่างซ่อมบำรุง ซ่อมบำรุงรักษาเครื่องใช้ไฟฟ้า</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-reveal="fade-right" data-delay="600">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">�🎓</span> ปวส.</div>
+                        <h3 class="timeline-role">เทคโนโลยีธุรกิจดิจิทัล</h3>
+                        <p class="timeline-company">วิทยาลัยเทคโนโลยีพระมหาไถ่ พัทยา</p>
+                        <p class="timeline-desc">สำเร็จการศึกษาระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) สาขาเทคโนโลยีธุรกิจดิจิทัล</p>
+                    </div>
+                </div>
+                <div class="timeline-item right" data-reveal="fade-left" data-delay="700">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">🎓</span> ปวช.</div>
+                        <h3 class="timeline-role">คอมพิวเตอร์ธุรกิจ</h3>
+                        <p class="timeline-company">วิทยาลัยเทคโนโลยีชื่นชมไทย – เยอรมัน</p>
+                        <p class="timeline-desc">จบระดับประกาศนียบัตรวิชาชีพ (ปวช.) สาขาคอมพิวเตอร์ธุรกิจ</p>
+                    </div>
+                </div>
+                <div class="timeline-item left" data-reveal="fade-right" data-delay="800">
+                    <div class="timeline-card glass-card">
+                        <div class="timeline-year"><span class="timeline-icon">📚</span> ม.ต้น</div>
+                        <h3 class="timeline-role">มัธยมศึกษาตอนต้น</h3>
+                        <p class="timeline-company">โรงเรียนวัดหนองตาบุญ</p>
+                        <p class="timeline-desc">จบการศึกษาระดับมัธยมศึกษาตอนต้น</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- CONTACT SECTION                             -->
+    <!-- ========================================== -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="contact-content">
+                <div class="section-label center" data-reveal="fade-up">GET_IN_TOUCH</div>
+                <h2 class="section-title center" data-reveal="fade-up" data-delay="100">Let's Work Together</h2>
+                <p class="contact-desc" data-reveal="fade-up" data-delay="200">
+                    Have a project in mind or just want to connect? Feel free to reach out.
+                </p>
+                <!-- === EDIT YOUR EMAIL === -->
+                <a href="mailto:wasuphon.thongsopon@gmail.com" class="btn btn-primary btn-email" data-reveal="fade-up" data-delay="300">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    <span>wasuphon.thongsopon@gmail.com</span>
+                </a>
+                <!-- === EDIT YOUR SOCIAL LINKS === -->
+                <div class="contact-socials" data-reveal="fade-up" data-delay="400">
+                    <a href="https://github.com" target="_blank" class="contact-social-icon" aria-label="GitHub">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                    </a>
+                    <a href="https://facebook.com" target="_blank" class="contact-social-icon" aria-label="Facebook">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                    </a>
+                    <a href="https://line.me" target="_blank" class="contact-social-icon" aria-label="Line">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                    </a>
+                    <a href="https://linkedin.com" target="_blank" class="contact-social-icon" aria-label="LinkedIn">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================== -->
+    <!-- LIGHTBOX / GALLERY MODAL                     -->
+    <!-- ========================================== -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-overlay"></div>
+        <div class="lightbox-container">
+            <button class="lightbox-close" id="lightboxClose" aria-label="Close">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" aria-label="Previous">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <button class="lightbox-arrow lightbox-next" id="lightboxNext" aria-label="Next">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+            <div class="lightbox-content">
+                <div class="lightbox-image-wrapper">
+                    <img class="lightbox-image" id="lightboxImage" src="" alt="Project screenshot">
+                </div>
+                <div class="lightbox-info">
+                    <h3 class="lightbox-title" id="lightboxTitle"></h3>
+                    <p class="lightbox-desc" id="lightboxDesc"></p>
+                    <div class="lightbox-counter">
+                        <span id="lightboxCurrent">1</span> / <span id="lightboxTotal">1</span>
+                    </div>
+                </div>
+                <div class="lightbox-thumbnails" id="lightboxThumbnails"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========================================== -->
+    <!-- FOOTER                                      -->
+    <!-- ========================================== -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <p class="footer-copy">&copy; 2026 Wasuphon Thongsopon. All rights reserved.</p>
+            <p class="footer-tag">BUILT_WITH_PRECISION</p>
+        </div>
+    </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script src="script.js"></script>
+</body>
+</html>
