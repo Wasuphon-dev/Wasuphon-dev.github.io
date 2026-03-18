@@ -17,9 +17,26 @@
 
 const PROJECTS_DATA = [
     {
+        title: "DormSmart System",
+        title_th: "ระบบหอพักครบวงจร",
+        category: "system",
+        description: "Full-cycle dormitory management system with PWA & Push Notification — covering room management, tenants, contracts, billing, payments, maintenance requests, and move-out in one platform.",
+        description_th: "ระบบบริหารจัดการหอพักแบบครบวงจร พร้อม PWA และ Push Notification ครอบคลุมตั้งแต่จัดการห้อง ผู้เช่า สัญญา ออกบิล รับชำระเงิน แจ้งซ่อม และย้ายออกในแพลตฟอร์มเดียว",
+        images: [
+            "p1.png",
+            "p2.png",
+            "p3.png"
+        ],
+        tags: ["PHP", "MySQL", "JavaScript", "PWA", "Push Notification"],
+        demo: "https://dormsmartsystem.com/login.php",
+        code: "#"
+    },
+    {
         title: "Quantum Ledger",
+        title_th: "Quantum Ledger",
         category: "web",
         description: "High-throughput financial dashboard with real-time analytics and data visualization.",
+        description_th: "แดชบอร์ดการเงินประสิทธิภาพสูง พร้อมการวิเคราะห์และแสดงผลข้อมูลแบบเรียลไทม์",
         images: [
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=600&fit=crop",
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=600&fit=crop",
@@ -31,8 +48,10 @@ const PROJECTS_DATA = [
     },
     {
         title: "Neural Engine",
+        title_th: "Neural Engine",
         category: "system",
         description: "Distributed processing system for machine learning workloads at scale.",
+        description_th: "ระบบประมวลผลแบบกระจายสำหรับงาน Machine Learning ขนาดใหญ่",
         images: [
             "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=900&h=600&fit=crop",
             "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&h=600&fit=crop",
@@ -44,8 +63,10 @@ const PROJECTS_DATA = [
     },
     {
         title: "CloudSync Pro",
+        title_th: "CloudSync Pro",
         category: "app",
         description: "Cross-platform file synchronization app with end-to-end encryption.",
+        description_th: "แอปซิงค์ไฟล์ข้ามแพลตฟอร์ม พร้อมการเข้ารหัสแบบ End-to-End",
         images: [
             "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=900&h=600&fit=crop",
             "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&h=600&fit=crop",
@@ -57,8 +78,10 @@ const PROJECTS_DATA = [
     },
     {
         title: "DataForge API",
+        title_th: "DataForge API",
         category: "system",
         description: "RESTful API gateway with auto-scaling, rate limiting, and real-time monitoring.",
+        description_th: "API Gateway แบบ RESTful พร้อม Auto-scaling, Rate Limiting และการมอนิเตอร์แบบเรียลไทม์",
         images: [
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=900&h=600&fit=crop",
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=900&h=600&fit=crop",
@@ -70,8 +93,10 @@ const PROJECTS_DATA = [
     },
     {
         title: "PixelCraft Studio",
+        title_th: "PixelCraft Studio",
         category: "web",
         description: "Browser-based design tool with collaborative editing and asset management.",
+        description_th: "เครื่องมือออกแบบบนเว็บเบราว์เซอร์ รองรับการทำงานร่วมกันและจัดการไฟล์งาน",
         images: [
             "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=900&h=600&fit=crop",
             "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=900&h=600&fit=crop",
@@ -83,8 +108,10 @@ const PROJECTS_DATA = [
     },
     {
         title: "TaskFlow Mobile",
+        title_th: "TaskFlow Mobile",
         category: "app",
         description: "Productivity app with Kanban boards, time tracking, and team collaboration.",
+        description_th: "แอปเพิ่มประสิทธิภาพการทำงาน พร้อม Kanban Board, จับเวลา และทำงานร่วมกันเป็นทีม",
         images: [
             "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=900&h=600&fit=crop",
             "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=900&h=600&fit=crop",
@@ -107,22 +134,32 @@ const SKILL_ICONS_DATA = [
     { name: "HTML", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l1.67 18.4L12 22l6.33-1.6L20 2H4z"/><path d="M16 8H8l.5 4h7l-.5 5-3 1-3-1-.2-2"/></svg>' },
     { name: "CSS", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 2l1.67 18.4L12 22l6.33-1.6L20 2H4z"/><path d="M8 8h8l-.5 4H9l.25 3L12 16l3-.75"/></svg>' },
     { name: "JavaScript", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><text x="8" y="17" font-size="10" font-weight="bold" fill="currentColor" stroke="none">JS</text></svg>' },
+    { name: "TypeScript", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><text x="7" y="17" font-size="10" font-weight="bold" fill="currentColor" stroke="none">TS</text></svg>' },
     { name: "Bootstrap", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="3"/><text x="8" y="17" font-size="12" font-weight="bold" fill="currentColor" stroke="none">B</text></svg>' },
+    { name: "ReactJS", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2.5"/><ellipse cx="12" cy="12" rx="10" ry="4"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)"/><ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)"/></svg>' },
+    { name: "NextJS", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 8l8.5 11"/><path d="M16 8v8"/></svg>' },
+    { name: "Flutter", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2L4 12l4 4"/><path d="M14 2h4l-8 8 4 4 8-8V2h-8z"/><path d="M10 16l4 4h4l-4-4"/></svg>' },
+    { name: "C++", category: "frontend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="12" r="8"/><path d="M17 9v6"/><path d="M14 12h6"/><path d="M21 9v6"/><path d="M18.5 12h5"/></svg>' },
     // --- Backend ---
     { name: "PHP", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="12" rx="11" ry="7"/><text x="4" y="15" font-size="8" font-weight="bold" fill="currentColor" stroke="none">php</text></svg>' },
     { name: "Python", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 8 4 8 4v3h4v1H6s-4 0-4 4 3 4 3 4h2v-3s0-2 2-2h4s2 0 2-2V4s0-2-4-2z"/><path d="M12 22c4 0 4-2 4-2v-3h-4v-1h6s4 0 4-4-3-4-3-4h-2v3s0 2-2 2h-4s-2 0-2 2v4s0 2 4 2z"/><circle cx="10" cy="5" r="0.8" fill="currentColor"/><circle cx="14" cy="19" r="0.8" fill="currentColor"/></svg>' },
+    { name: "NodeJS", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l9 5v10l-9 5-9-5V7l9-5z"/><text x="7" y="15" font-size="7" font-weight="bold" fill="currentColor" stroke="none">N</text></svg>' },
+    { name: "Go", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12c0-5 4-9 9-9s9 4 9 9-4 9-9 9"/><path d="M12 21c-2 0-4-1-5.5-3"/><text x="6" y="15" font-size="9" font-weight="bold" fill="currentColor" stroke="none">Go</text></svg>' },
     { name: "MySQL", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>' },
+    { name: "SQL Server", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="6" rx="8" ry="3"/><path d="M4 6v12c0 1.66 3.58 3 8 3s8-1.34 8-3V6"/><path d="M4 12c0 1.66 3.58 3 8 3s8-1.34 8-3"/><path d="M4 9c0 1.66 3.58 3 8 3s8-1.34 8-3"/><path d="M4 15c0 1.66 3.58 3 8 3s8-1.34 8-3"/></svg>' },
+    { name: "Remote Desktop", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 10h2"/><path d="M12 10h5"/><path d="M7 13h10"/></svg>' },
+    { name: "pgAdmin 4", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="7" rx="8" ry="4"/><path d="M4 7v5c0 2.2 3.58 4 8 4s8-1.8 8-4V7"/><path d="M12 16v5"/><path d="M8 21h8"/></svg>' },
+    { name: "API", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h4"/><path d="M16 12h4"/><rect x="8" y="6" width="8" height="12" rx="2"/><path d="M10 10h4"/><path d="M10 14h4"/></svg>' },
     { name: "SQL", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><text x="5" y="16" font-size="9" font-weight="bold" fill="currentColor" stroke="none">SQL</text></svg>' },
+    { name: "Git", category: "backend", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M12 8v8"/><path d="M12 8c3 0 6 1.79 6 4"/></svg>' },
     // --- Tools ---
-    { name: "Power BI", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>' },
-    { name: "Power Apps", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="2" width="14" height="20" rx="3"/><circle cx="12" cy="12" r="4"/><path d="M12 8v8"/><path d="M8 12h8"/></svg>' },
-    { name: "Power Automate", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/><circle cx="18" cy="6" r="3"/></svg>' },
-    { name: "Photoshop", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><text x="5" y="16" font-size="9" font-weight="bold" fill="currentColor" stroke="none">Ps</text></svg>' },
-    { name: "Canva", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12c0-2.2 1.8-4 4-4s4 1.8 4 4"/><circle cx="12" cy="13" r="2"/></svg>' },
-    { name: "CapCut", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polygon points="10,8 16,12 10,16"/></svg>' },
-    { name: "Microsoft Office", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="6" y="6" width="5" height="5"/><rect x="13" y="6" width="5" height="5"/><rect x="6" y="13" width="5" height="5"/><rect x="13" y="13" width="5" height="5"/></svg>' },
-    { name: "Git", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="6" r="2"/><circle cx="12" cy="18" r="2"/><circle cx="18" cy="12" r="2"/><path d="M12 8v8"/><path d="M12 8c3 0 6 1.79 6 4"/></svg>' },
     { name: "GitHub", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>' },
+    { name: "Microsoft Office", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><rect x="6" y="6" width="5" height="5"/><rect x="13" y="6" width="5" height="5"/><rect x="6" y="13" width="5" height="5"/><rect x="13" y="13" width="5" height="5"/></svg>' },
+    { name: "Postman", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>' },
+    { name: "Power Automate", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/><circle cx="18" cy="6" r="3"/></svg>' },
+    { name: "Power BI", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="12" width="4" height="8" rx="1"/><rect x="10" y="8" width="4" height="12" rx="1"/><rect x="16" y="4" width="4" height="16" rx="1"/></svg>' },
+    { name: "Photoshop", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><text x="5" y="16" font-size="9" font-weight="bold" fill="currentColor" stroke="none">Ps</text></svg>' },
+    { name: "Figma", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="6" height="6" rx="3"/><rect x="12" y="2" width="6" height="6" rx="3"/><rect x="6" y="8" width="6" height="6" rx="3"/><circle cx="15" cy="11" r="3"/><rect x="6" y="14" width="6" height="8" rx="3"/></svg>' },
     { name: "VS Code", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 3l5 2.5v13L16 21 3 12l5-4"/><path d="M16 3L8 12l8 9"/><path d="M3 12l5 4"/></svg>' },
     { name: "XAMPP", category: "tools", icon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/><path d="M8 8l3 3-3 3"/><path d="M14 14h3"/></svg>' }
 ];
@@ -130,17 +167,187 @@ const SKILL_ICONS_DATA = [
 // ================================================== //
 // ========== TYPING TEXT DATA (EDIT HERE!) ========= //
 // ================================================== //
-const TYPING_STRINGS = [
+const TYPING_STRINGS_EN = [
     "Full Stack Developer",
     "Programmer",
     "UX/UI Designer",
     "Graphic Designer"
 ];
 
+const TYPING_STRINGS_TH = [
+    "นักพัฒนา Full Stack",
+    "โปรแกรมเมอร์",
+    "นักออกแบบ UX/UI",
+    "นักออกแบบกราฟิก"
+];
+
+let TYPING_STRINGS = TYPING_STRINGS_EN;
+
+// ================================================== //
+// ========== TRANSLATIONS (i18n)           ========= //
+// ================================================== //
+let currentLang = localStorage.getItem('lang') || 'en';
+
+const TRANSLATIONS = {
+    en: {
+        // Loader
+        loader_text: "Initializing...",
+        // Nav
+        nav_about: "About",
+        nav_skills: "Skills",
+        nav_projects: "Projects",
+        nav_experience: "Experience",
+        nav_contact: "Contact",
+        // Hero
+        hero_badge: "READY_TO_BUILD_2026",
+        hero_name: "Wasuphon Thongsopon",
+        hero_desc: "A passionate Full Stack Developer &amp; Programmer<br>who loves graphic design, UX/UI, and continuous learning",
+        btn_projects: "View Projects",
+        btn_contact: "Get in Touch",
+        // About
+        about_label: "ABOUT_ME",
+        about_title: "Who I Am",
+        about_bio: "Hello! My name is Wasuphon Thongsopon (Fluk), 22 years old.<br>I graduated from Phra Mahathai Pattaya College of Technology, majoring in Digital Business Technology (Diploma). I have hands-on experience working as a Programmer at E-Hong Moddaeng Motor Lease Co., Ltd., Maha Sarakham. I\u2019m passionate about graphic design, UX/UI, and I\u2019m always eager to learn new things. I work well with colleagues and can handle pressure effectively.",
+        // Skills
+        skill_label: "SKILL_SET",
+        skill_title: "Tech Stack",
+        skill_filter_all: "All",
+        skill_filter_frontend: "Frontend Development",
+        skill_filter_backend: "Backend Development",
+        skill_filter_tools: "Development Tools",
+        prof_label: "PROFICIENCY",
+        prof_title: "Skill Levels",
+        skill_cat1_label: "CLIENT_SIDE",
+        skill_cat1_title: "Frontend",
+        skill_cat2_label: "SERVER_SIDE",
+        skill_cat2_title: "Backend & Data",
+        skill_cat3_label: "CREATIVE_TOOLS",
+        skill_cat3_title: "Tools & Design",
+        // Projects
+        projects_label: "SELECTED_WORKS",
+        projects_title: "Featured Projects",
+        // Experience
+        exp_label: "CAREER_PATH",
+        exp_title: "Experience",
+        exp1_year: "2024 - 2025",
+        exp1_role: "Programmer (Full-time)",
+        exp1_company: "E-Hong Moddaeng Motor Lease Co., Ltd., Maha Sarakham",
+        exp1_desc: "After completing the internship, I was hired as a full-time Programmer for 1 year, developing full-stack systems for the organization.",
+        exp2_year: "2024",
+        exp2_role: "Programmer (Intern)",
+        exp2_company: "E-Hong Moddaeng Motor Lease Co., Ltd., Maha Sarakham",
+        exp2_desc: "Internship as a Programmer, gaining hands-on experience in real-world system development before being offered a full-time position.",
+        exp3_year: "2021 - 2022",
+        exp3_role: "IT Support (Intern)",
+        exp3_company: "Kasemrad Hospital, Saraburi",
+        exp3_desc: "3-month internship in Information Technology, handling IT support systems.",
+        exp4_year: "2022",
+        exp4_role: "Maintenance Technician (Intern)",
+        exp4_company: "Sa-nga Factory",
+        exp4_desc: "6-month internship as a Maintenance Technician, maintaining and repairing electrical equipment.",
+        exp5_year: "Diploma",
+        exp5_role: "Digital Business Technology",
+        exp5_company: "Phra Mahathai Pattaya College of Technology",
+        exp5_desc: "Graduated with a High Vocational Certificate (Diploma) in Digital Business Technology.",
+        exp6_year: "Voc. Cert.",
+        exp6_role: "Business Computer",
+        exp6_company: "Chuenchom Thai-German College of Technology",
+        exp6_desc: "Graduated with a Vocational Certificate in Business Computer.",
+        exp7_year: "Secondary",
+        exp7_role: "Lower Secondary Education",
+        exp7_company: "Wat Nong Ta Bun School",
+        exp7_desc: "Completed lower secondary education.",
+        // Contact
+        contact_label: "GET_IN_TOUCH",
+        contact_title: "Let\u2019s Work Together",
+        contact_desc: "Have a project in mind or just want to connect? Feel free to reach out.",
+        // Footer
+        footer_copy: "&copy; 2026 Wasuphon Thongsopon. All rights reserved.",
+        footer_tag: "BUILT_WITH_PRECISION"
+    },
+    th: {
+        // Loader
+        loader_text: "กำลังโหลด...",
+        // Nav
+        nav_about: "เกี่ยวกับ",
+        nav_skills: "ทักษะ",
+        nav_projects: "ผลงาน",
+        nav_experience: "ประสบการณ์",
+        nav_contact: "ติดต่อ",
+        // Hero
+        hero_badge: "พร้อมทำงาน_2026",
+        hero_name: "วสุพล ทองโสภณ",
+        hero_desc: "Full Stack Developer &amp; Programmer ที่รักการเรียนรู้<br>ออกแบบกราฟิก ดีไซน์ และ UX/UI",
+        btn_projects: "ดูผลงาน",
+        btn_contact: "ติดต่อฉัน",
+        // About
+        about_label: "เกี่ยวกับ_ฉัน",
+        about_title: "ฉันเป็นใคร",
+        about_bio: "สวัสดีครับ ผมชื่อ วสุพล ทองโสภณ (ฟลุ้ค) อายุ 22 ปี<br>จบการศึกษาจากวิทยาลัยเทคโนโลยีพระมหาไถ่ พัทยา สาขาเทคโนโลยีธุรกิจดิจิทัล (ปวส.) มีประสบการณ์ทำงานจริงในตำแหน่ง Programmer ที่ อีฮงมดแดงมอเตอร์ ลีส จำกัด มหาสารคาม ผมชอบการออกแบบกราฟิก ดีไซน์ และ UX/UI รวมถึงหาความรู้ใส่ตัวเองอยู่เสมอ เข้ากับเพื่อนร่วมงานได้ดี และรับแรงกดดันจากการทำงานได้",
+        // Skills
+        skill_label: "ชุดทักษะ",
+        skill_title: "เทคโนโลยีที่ใช้",
+        skill_filter_all: "ทั้งหมด",
+        skill_filter_frontend: "พัฒนา Frontend",
+        skill_filter_backend: "พัฒนา Backend",
+        skill_filter_tools: "เครื่องมือพัฒนา",
+        prof_label: "ระดับความชำนาญ",
+        prof_title: "ระดับทักษะ",
+        skill_cat1_label: "ฝั่งลูกค้า",
+        skill_cat1_title: "ฟรอนต์เอนด์",
+        skill_cat2_label: "ฝั่งเซิร์ฟเวอร์",
+        skill_cat2_title: "แบ็กเอนด์ & ข้อมูล",
+        skill_cat3_label: "เครื่องมือสร้างสรรค์",
+        skill_cat3_title: "เครื่องมือ & ดีไซน์",
+        // Projects
+        projects_label: "ผลงานคัดสรร",
+        projects_title: "โปรเจกต์เด่น",
+        // Experience
+        exp_label: "เส้นทางอาชีพ",
+        exp_title: "ประสบการณ์",
+        exp1_year: "2024 - 2025",
+        exp1_role: "Programmer (ทำงานจริง)",
+        exp1_company: "อีฮงมดแดงมอเตอร์ ลีส จำกัด, มหาสารคาม",
+        exp1_desc: "หลังจบฝึกงาน ได้รับการบรรจุทำงานจริงในตำแหน่ง Programmer ระยะเวลา 1 ปี พัฒนาระบบ Full Stack ให้กับองค์กร",
+        exp2_year: "2024",
+        exp2_role: "Programmer (ฝึกงาน)",
+        exp2_company: "อีฮงมดแดงมอเตอร์ ลีส จำกัด, มหาสารคาม",
+        exp2_desc: "ฝึกงานตำแหน่ง Programmer เรียนรู้การพัฒนาระบบจริงในองค์กร ก่อนได้รับการบรรจุเป็นพนักงานประจำ",
+        exp3_year: "2021 - 2022",
+        exp3_role: "IT Support (ฝึกงาน)",
+        exp3_company: "โรงพยาบาลเกษมราษฎร์ สระบุรี",
+        exp3_desc: "ฝึกงาน 3 เดือน ตำแหน่งเทคโนโลยีสารสนเทศ ดูแลระบบ IT Support",
+        exp4_year: "2022",
+        exp4_role: "ช่างซ่อมบำรุง (ฝึกงาน)",
+        exp4_company: "โรงงาน สง่า",
+        exp4_desc: "ฝึกงาน 6 เดือน ตำแหน่งช่างซ่อมบำรุง ซ่อมบำรุงรักษาเครื่องใช้ไฟฟ้า",
+        exp5_year: "ปวส.",
+        exp5_role: "เทคโนโลยีธุรกิจดิจิทัล",
+        exp5_company: "วิทยาลัยเทคโนโลยีพระมหาไถ่ พัทยา",
+        exp5_desc: "สำเร็จการศึกษาระดับประกาศนียบัตรวิชาชีพชั้นสูง (ปวส.) สาขาเทคโนโลยีธุรกิจดิจิทัล",
+        exp6_year: "ปวช.",
+        exp6_role: "คอมพิวเตอร์ธุรกิจ",
+        exp6_company: "วิทยาลัยเทคโนโลยีชื่นชมไทย – เยอรมัน",
+        exp6_desc: "จบระดับประกาศนียบัตรวิชาชีพ (ปวช.) สาขาคอมพิวเตอร์ธุรกิจ",
+        exp7_year: "ม.ต้น",
+        exp7_role: "มัธยมศึกษาตอนต้น",
+        exp7_company: "โรงเรียนวัดหนองตาบุญ",
+        exp7_desc: "จบการศึกษาระดับมัธยมศึกษาตอนต้น",
+        // Contact
+        contact_label: "ติดต่อเรา",
+        contact_title: "มาทำงานด้วยกัน",
+        contact_desc: "มีโปรเจกต์ในใจ หรือแค่อยากพูดคุย? ติดต่อผมได้เลยครับ",
+        // Footer
+        footer_copy: "&copy; 2026 วสุพล ทองโสภณ สงวนลิขสิทธิ์",
+        footer_tag: "สร้างด้วยความตั้งใจ"
+    }
+};
+
 // ================================================== //
 // ========== INITIALIZATION                ========= //
 // ================================================== //
 document.addEventListener('DOMContentLoaded', () => {
+    initLanguageToggle();
     initLoader();
     initCustomCursor();
     initScrollProgress();
@@ -177,6 +384,79 @@ function debounce(fn, wait) {
         clearTimeout(timer);
         timer = setTimeout(() => fn.apply(this, args), wait);
     };
+}
+
+// ================================================== //
+// ========== LANGUAGE TOGGLE (i18n)       ========== //
+// ================================================== //
+function initLanguageToggle() {
+    const toggle = document.getElementById('langToggle');
+    if (!toggle) return;
+
+    // Apply saved language on load
+    setLanguage(currentLang, false);
+
+    toggle.addEventListener('click', () => {
+        currentLang = currentLang === 'en' ? 'th' : 'en';
+        setLanguage(currentLang, true);
+    });
+}
+
+function setLanguage(lang, restartTyping) {
+    const t = TRANSLATIONS[lang];
+    if (!t) return;
+
+    // Update text content (plain text)
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) {
+            el.textContent = t[key];
+        }
+    });
+
+    // Update HTML content (elements with <br> etc.)
+    document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) {
+            el.innerHTML = t[key];
+        }
+    });
+
+    // Update html lang attribute
+    document.documentElement.lang = lang === 'th' ? 'th' : 'en';
+
+    // Update toggle button active state
+    const enSpan = document.querySelector('.lang-toggle-en');
+    const thSpan = document.querySelector('.lang-toggle-th');
+    if (enSpan && thSpan) {
+        enSpan.classList.toggle('active', lang === 'en');
+        thSpan.classList.toggle('active', lang === 'th');
+    }
+
+    // Update typing strings
+    TYPING_STRINGS = lang === 'th' ? TYPING_STRINGS_TH : TYPING_STRINGS_EN;
+
+    // Restart typing effect if requested
+    if (restartTyping) {
+        const el = document.getElementById('typingText');
+        if (el) {
+            el.textContent = '';
+            // Reset typing state via a fresh call
+            if (window._typingTimeout) clearTimeout(window._typingTimeout);
+            window._typingStringIndex = 0;
+            window._typingCharIndex = 0;
+            window._typingIsDeleting = false;
+            startTyping();
+        }
+    }
+
+    // Re-render projects with new language
+    const activeFilter = document.querySelector('.filter-btn.active');
+    const currentFilter = activeFilter ? activeFilter.getAttribute('data-filter') : 'all';
+    renderProjects(currentFilter);
+
+    // Save preference
+    localStorage.setItem('lang', lang);
 }
 
 // ================================================== //
@@ -438,37 +718,41 @@ function initTypingEffect() {
     const el = document.getElementById('typingText');
     if (!el) return;
     
-    let stringIndex = 0;
-    let charIndex = 0;
-    let isDeleting = false;
-    let typeSpeed = 100;
+    window._typingStringIndex = 0;
+    window._typingCharIndex = 0;
+    window._typingIsDeleting = false;
+    window._typingTimeout = null;
     
-    function type() {
-        const currentString = TYPING_STRINGS[stringIndex];
-        
-        if (isDeleting) {
-            el.textContent = currentString.substring(0, charIndex - 1);
-            charIndex--;
-            typeSpeed = 50;
-        } else {
-            el.textContent = currentString.substring(0, charIndex + 1);
-            charIndex++;
-            typeSpeed = 100;
-        }
-        
-        if (!isDeleting && charIndex === currentString.length) {
-            typeSpeed = 2000; // Pause at end
-            isDeleting = true;
-        } else if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            stringIndex = (stringIndex + 1) % TYPING_STRINGS.length;
-            typeSpeed = 500; // Pause before new string
-        }
-        
-        setTimeout(type, typeSpeed);
+    startTyping();
+}
+
+function startTyping() {
+    const el = document.getElementById('typingText');
+    if (!el) return;
+    
+    let typeSpeed = 100;
+    const currentString = TYPING_STRINGS[window._typingStringIndex % TYPING_STRINGS.length];
+    
+    if (window._typingIsDeleting) {
+        el.textContent = currentString.substring(0, window._typingCharIndex - 1);
+        window._typingCharIndex--;
+        typeSpeed = 50;
+    } else {
+        el.textContent = currentString.substring(0, window._typingCharIndex + 1);
+        window._typingCharIndex++;
+        typeSpeed = 100;
     }
     
-    type();
+    if (!window._typingIsDeleting && window._typingCharIndex === currentString.length) {
+        typeSpeed = 2000;
+        window._typingIsDeleting = true;
+    } else if (window._typingIsDeleting && window._typingCharIndex === 0) {
+        window._typingIsDeleting = false;
+        window._typingStringIndex = (window._typingStringIndex + 1) % TYPING_STRINGS.length;
+        typeSpeed = 500;
+    }
+    
+    window._typingTimeout = setTimeout(startTyping, typeSpeed);
 }
 
 // ================================================== //
@@ -636,21 +920,25 @@ function renderProjects(filter = 'all') {
         card.style.animationDelay = (index * 100) + 'ms';
         
         const thumbImage = project.images ? project.images[0] : project.image;
+        const isTh = currentLang === 'th';
+        const pTitle = isTh && project.title_th ? project.title_th : project.title;
+        const pDesc = isTh && project.description_th ? project.description_th : project.description;
+        const imgLabel = isTh ? 'รูป' : 'imgs';
         
         card.innerHTML = `
             <div class="project-card-image" data-project-index="${PROJECTS_DATA.indexOf(project)}">
-                <img src="${thumbImage}" alt="${project.title}" loading="lazy">
+                <img src="${thumbImage}" alt="${pTitle}" loading="lazy">
                 <div class="image-overlay">
                     <div class="image-overlay-icon">
                         <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
                     </div>
                 </div>
-                ${project.images && project.images.length > 1 ? `<div style="position:absolute;bottom:8px;right:8px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);padding:3px 8px;border-radius:4px;letter-spacing:0.5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:3px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9.5 15 3.5-4.5 4 5H7l2.5-3"/></svg>${project.images.length} imgs</div>` : ''}
+                ${project.images && project.images.length > 1 ? `<div style="position:absolute;bottom:8px;right:8px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:0.65rem;color:rgba(255,255,255,0.7);background:rgba(0,0,0,0.5);backdrop-filter:blur(4px);padding:3px 8px;border-radius:4px;letter-spacing:0.5px;"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:-2px;margin-right:3px;"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="m9.5 15 3.5-4.5 4 5H7l2.5-3"/></svg>${project.images.length} ${imgLabel}</div>` : ''}
             </div>
             <div class="project-card-body">
                 <div class="project-card-category">${project.category.toUpperCase()}</div>
-                <h3 class="project-card-title">${project.title}</h3>
-                <p class="project-card-desc">${project.description}</p>
+                <h3 class="project-card-title">${pTitle}</h3>
+                <p class="project-card-desc">${pDesc}</p>
                 <div class="project-card-tags">
                     ${project.tags.map(tag => `<span class="project-tag">${tag}</span>`).join('')}
                 </div>
@@ -794,10 +1082,11 @@ function initLightbox() {
         const images = currentProject.images || [currentProject.image];
         currentImageIndex = 0;
         
-        // Update content
+        // Update content (language-aware)
         updateLightboxImage();
-        lightboxTitle.textContent = currentProject.title;
-        lightboxDesc.textContent = currentProject.description;
+        const isTh = currentLang === 'th';
+        lightboxTitle.textContent = isTh && currentProject.title_th ? currentProject.title_th : currentProject.title;
+        lightboxDesc.textContent = isTh && currentProject.description_th ? currentProject.description_th : currentProject.description;
         lightboxTotal.textContent = images.length;
         
         // Build thumbnails
