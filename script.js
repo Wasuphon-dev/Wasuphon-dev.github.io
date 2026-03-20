@@ -573,26 +573,23 @@ function initNavbar() {
     const indicator = document.getElementById('navIndicator');
     const pillGroup = document.getElementById('navPillGroup');
     const pillLinks = pillGroup ? Array.from(pillGroup.querySelectorAll('.nav-link')) : [];
-    let scrollLock = false;
-    let scrollLockTimer = null;
 
-    function updateNavIndicator() {
-        if (!indicator || !pillGroup) return;
-        const activeLink = pillGroup.querySelector('.nav-link.active');
-        if (activeLink) {
-            indicator.style.transform = `translateX(${activeLink.offsetLeft}px)`;
-            indicator.style.width = activeLink.offsetWidth + 'px';
+    function moveIndicator(link) {
+        if (!indicator) return;
+        if (!link) { indicator.classList.remove('visible'); return; }
+        // Use rAF to let browser finish layout before reading offsetLeft
+        requestAnimationFrame(() => {
+            indicator.style.width = link.offsetWidth + 'px';
+            indicator.style.transform = `translateX(${link.offsetLeft}px)`;
             indicator.classList.add('visible');
-        } else {
-            indicator.classList.remove('visible');
-        }
+        });
     }
 
-    function setActiveLink(href) {
+    function setActive(href) {
         pillLinks.forEach(l => l.classList.remove('active'));
         const target = pillGroup ? pillGroup.querySelector(`.nav-link[href="${href}"]`) : null;
         if (target) target.classList.add('active');
-        updateNavIndicator();
+        moveIndicator(target);
     }
 
     // Mobile toggle
@@ -603,63 +600,61 @@ function initNavbar() {
         });
     }
 
-    // Click: lock scroll handler, set active immediately
+    // Click: set active immediately, block observer briefly
+    let clicking = false;
     pillLinks.forEach(link => {
         link.addEventListener('click', () => {
-            setActiveLink(link.getAttribute('href'));
-            // Lock scroll from overriding for 900ms (smooth scroll duration)
-            scrollLock = true;
-            clearTimeout(scrollLockTimer);
-            scrollLockTimer = setTimeout(() => { scrollLock = false; }, 900);
+            setActive(link.getAttribute('href'));
+            clicking = true;
+            setTimeout(() => { clicking = false; }, 1000);
             if (navToggle && navLinks) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             }
         });
     });
-
-    // Contact button — just close mobile menu
     const contactBtn = document.querySelector('.nav-link-btn');
-    if (contactBtn && navToggle && navLinks) {
+    if (contactBtn) {
         contactBtn.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navLinks.classList.remove('active');
+            navToggle?.classList.remove('active');
+            navLinks?.classList.remove('active');
         });
     }
 
-    // Active link on scroll
+    // IntersectionObserver — fires when section center crosses mid-viewport
     const sections = document.querySelectorAll('section[id]');
-    const handleActiveLink = throttle(() => {
-        if (scrollLock) return; // ignore while scroll-locked after click
-        const scrollY = window.scrollY + 120;
-        let found = false;
+    const observer = new IntersectionObserver((entries) => {
+        if (clicking) return;
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            const id = entry.target.getAttribute('id');
+            const link = pillGroup ? pillGroup.querySelector(`.nav-link[href="#${id}"]`) : null;
+            if (link) setActive(`#${id}`);
+            else {
+                pillLinks.forEach(l => l.classList.remove('active'));
+                if (indicator) indicator.classList.remove('visible');
+            }
+        });
+    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
+    sections.forEach(s => observer.observe(s));
+
+    // Init indicator on load
+    setTimeout(() => {
+        const scrollY = window.scrollY + window.innerHeight * 0.4;
         for (let i = sections.length - 1; i >= 0; i--) {
-            const section = sections[i];
-            const top = section.offsetTop;
-            const id = section.getAttribute('id');
-            if (scrollY >= top) {
+            if (scrollY >= sections[i].offsetTop) {
+                const id = sections[i].getAttribute('id');
                 const link = pillGroup ? pillGroup.querySelector(`.nav-link[href="#${id}"]`) : null;
-                if (link) {
-                    setActiveLink(`#${id}`);
-                } else {
-                    // section exists (like hero/contact) but not in pill group — clear pill active
-                    pillLinks.forEach(l => l.classList.remove('active'));
-                    indicator.classList.remove('visible');
-                }
-                found = true;
-                break;
+                if (link) { setActive(`#${id}`); break; }
             }
         }
-        if (!found) {
-            pillLinks.forEach(l => l.classList.remove('active'));
-            if (indicator) indicator.classList.remove('visible');
-        }
-    }, 100);
-    window.addEventListener('scroll', handleActiveLink, { passive: true });
+    }, 500);
 
-    // Run once on load + resize
-    setTimeout(() => { handleActiveLink(); updateNavIndicator(); }, 400);
-    window.addEventListener('resize', debounce(updateNavIndicator, 150), { passive: true });
+    // Recalculate on resize
+    window.addEventListener('resize', debounce(() => {
+        const active = pillGroup ? pillGroup.querySelector('.nav-link.active') : null;
+        moveIndicator(active);
+    }, 150), { passive: true });
 }
 
 // ================================================== //
