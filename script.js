@@ -585,6 +585,22 @@ function initNavbar() {
         });
     }
     
+    // Indicator helper
+    const indicator = document.getElementById('navIndicator');
+    const pillGroup = document.getElementById('navPillGroup');
+
+    function updateNavIndicator() {
+        if (!indicator || !pillGroup) return;
+        const activeLink = pillGroup.querySelector('.nav-link.active');
+        if (activeLink) {
+            indicator.style.left = activeLink.offsetLeft + 'px';
+            indicator.style.width = activeLink.offsetWidth + 'px';
+            indicator.classList.add('visible');
+        } else {
+            indicator.classList.remove('visible');
+        }
+    }
+
     // Active link on scroll - throttled
     const sections = document.querySelectorAll('section[id]');
     const handleActiveLink = throttle(() => {
@@ -603,8 +619,15 @@ function initNavbar() {
                 }
             }
         });
+        updateNavIndicator();
     }, 150);
     window.addEventListener('scroll', handleActiveLink, { passive: true });
+
+    // Run once on load
+    setTimeout(updateNavIndicator, 300);
+
+    // Update on resize (pill may shift)
+    window.addEventListener('resize', debounce(updateNavIndicator, 150), { passive: true });
 }
 
 // ================================================== //
