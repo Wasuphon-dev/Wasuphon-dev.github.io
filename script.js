@@ -569,22 +569,6 @@ function initNavbar() {
     }, 100);
     window.addEventListener('scroll', handleNavScroll, { passive: true });
     
-    // Mobile toggle
-    if (navToggle && navLinks) {
-        navToggle.addEventListener('click', () => {
-            navToggle.classList.toggle('active');
-            navLinks.classList.toggle('active');
-        });
-        
-        // Close menu on link click
-        navLinks.querySelectorAll('.nav-link').forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navLinks.classList.remove('active');
-            });
-        });
-    }
-    
     // Indicator helper
     const indicator = document.getElementById('navIndicator');
     const pillGroup = document.getElementById('navPillGroup');
@@ -601,6 +585,40 @@ function initNavbar() {
         }
     }
 
+    function setActiveLink(targetHref) {
+        document.querySelectorAll('.nav-pill-group .nav-link').forEach(l => l.classList.remove('active'));
+        const target = document.querySelector(`.nav-pill-group .nav-link[href="${targetHref}"]`);
+        if (target) target.classList.add('active');
+        updateNavIndicator();
+    }
+
+    // Mobile toggle
+    if (navToggle && navLinks) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navLinks.classList.toggle('active');
+        });
+    }
+
+    // Click: set active immediately + close mobile menu
+    document.querySelectorAll('.nav-pill-group .nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            setActiveLink(link.getAttribute('href'));
+            if (navToggle && navLinks) {
+                navToggle.classList.remove('active');
+                navLinks.classList.remove('active');
+            }
+        });
+    });
+    // Contact button (outside pill group) — just close mobile menu
+    const contactBtn = document.querySelector('.nav-link-btn');
+    if (contactBtn && navToggle && navLinks) {
+        contactBtn.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navLinks.classList.remove('active');
+        });
+    }
+
     // Active link on scroll - throttled
     const sections = document.querySelectorAll('section[id]');
     const handleActiveLink = throttle(() => {
@@ -609,8 +627,7 @@ function initNavbar() {
             const top = section.offsetTop;
             const height = section.offsetHeight;
             const id = section.getAttribute('id');
-            const link = document.querySelector(`.nav-link[href="#${id}"]`);
-            
+            const link = document.querySelector(`.nav-pill-group .nav-link[href="#${id}"]`);
             if (link) {
                 if (scrollY >= top && scrollY < top + height) {
                     link.classList.add('active');
@@ -620,7 +637,7 @@ function initNavbar() {
             }
         });
         updateNavIndicator();
-    }, 150);
+    }, 100);
     window.addEventListener('scroll', handleActiveLink, { passive: true });
 
     // Run once on load
