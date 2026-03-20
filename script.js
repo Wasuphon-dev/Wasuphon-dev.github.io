@@ -569,15 +569,18 @@ function initNavbar() {
     }, 100);
     window.addEventListener('scroll', handleNavScroll, { passive: true });
     
-    // Indicator helper
+    // Indicator
     const indicator = document.getElementById('navIndicator');
     const pillGroup = document.getElementById('navPillGroup');
+    const pillLinks = pillGroup ? Array.from(pillGroup.querySelectorAll('.nav-link')) : [];
+    let scrollLock = false;
+    let scrollLockTimer = null;
 
     function updateNavIndicator() {
         if (!indicator || !pillGroup) return;
         const activeLink = pillGroup.querySelector('.nav-link.active');
         if (activeLink) {
-            indicator.style.left = activeLink.offsetLeft + 'px';
+            indicator.style.transform = `translateX(${activeLink.offsetLeft}px)`;
             indicator.style.width = activeLink.offsetWidth + 'px';
             indicator.classList.add('visible');
         } else {
@@ -585,9 +588,9 @@ function initNavbar() {
         }
     }
 
-    function setActiveLink(targetHref) {
-        document.querySelectorAll('.nav-pill-group .nav-link').forEach(l => l.classList.remove('active'));
-        const target = document.querySelector(`.nav-pill-group .nav-link[href="${targetHref}"]`);
+    function setActiveLink(href) {
+        pillLinks.forEach(l => l.classList.remove('active'));
+        const target = pillGroup ? pillGroup.querySelector(`.nav-link[href="${href}"]`) : null;
         if (target) target.classList.add('active');
         updateNavIndicator();
     }
@@ -600,17 +603,22 @@ function initNavbar() {
         });
     }
 
-    // Click: set active immediately + close mobile menu
-    document.querySelectorAll('.nav-pill-group .nav-link').forEach(link => {
+    // Click: lock scroll handler, set active immediately
+    pillLinks.forEach(link => {
         link.addEventListener('click', () => {
             setActiveLink(link.getAttribute('href'));
+            // Lock scroll from overriding for 900ms (smooth scroll duration)
+            scrollLock = true;
+            clearTimeout(scrollLockTimer);
+            scrollLockTimer = setTimeout(() => { scrollLock = false; }, 900);
             if (navToggle && navLinks) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
             }
         });
     });
-    // Contact button (outside pill group) — just close mobile menu
+
+    // Contact button — just close mobile menu
     const contactBtn = document.querySelector('.nav-link-btn');
     if (contactBtn && navToggle && navLinks) {
         contactBtn.addEventListener('click', () => {
@@ -619,31 +627,38 @@ function initNavbar() {
         });
     }
 
-    // Active link on scroll - throttled
+    // Active link on scroll
     const sections = document.querySelectorAll('section[id]');
     const handleActiveLink = throttle(() => {
-        const scrollY = window.scrollY + 100;
-        sections.forEach(section => {
+        if (scrollLock) return; // ignore while scroll-locked after click
+        const scrollY = window.scrollY + 120;
+        let found = false;
+        for (let i = sections.length - 1; i >= 0; i--) {
+            const section = sections[i];
             const top = section.offsetTop;
-            const height = section.offsetHeight;
             const id = section.getAttribute('id');
-            const link = document.querySelector(`.nav-pill-group .nav-link[href="#${id}"]`);
-            if (link) {
-                if (scrollY >= top && scrollY < top + height) {
-                    link.classList.add('active');
+            if (scrollY >= top) {
+                const link = pillGroup ? pillGroup.querySelector(`.nav-link[href="#${id}"]`) : null;
+                if (link) {
+                    setActiveLink(`#${id}`);
                 } else {
-                    link.classList.remove('active');
+                    // section exists (like hero/contact) but not in pill group — clear pill active
+                    pillLinks.forEach(l => l.classList.remove('active'));
+                    indicator.classList.remove('visible');
                 }
+                found = true;
+                break;
             }
-        });
-        updateNavIndicator();
+        }
+        if (!found) {
+            pillLinks.forEach(l => l.classList.remove('active'));
+            if (indicator) indicator.classList.remove('visible');
+        }
     }, 100);
     window.addEventListener('scroll', handleActiveLink, { passive: true });
 
-    // Run once on load
-    setTimeout(updateNavIndicator, 300);
-
-    // Update on resize (pill may shift)
+    // Run once on load + resize
+    setTimeout(() => { handleActiveLink(); updateNavIndicator(); }, 400);
     window.addEventListener('resize', debounce(updateNavIndicator, 150), { passive: true });
 }
 

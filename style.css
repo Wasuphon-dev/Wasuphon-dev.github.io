@@ -315,11 +315,12 @@ body.cursor-hover .cursor-ring {
     border-radius: 50px;
     background: var(--accent-blue);
     box-shadow: 0 0 18px rgba(59, 130, 246, 0.65), 0 0 40px rgba(59, 130, 246, 0.25);
-    transition: left 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.25s ease;
+    transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1), width 0.35s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s ease;
     pointer-events: none;
     z-index: 0;
     opacity: 0;
-    will-change: left, width;
+    will-change: transform, width;
+    transform: translateX(0);
 }
 
 .nav-indicator.visible {
