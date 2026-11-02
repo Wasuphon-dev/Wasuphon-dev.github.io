@@ -196,6 +196,7 @@ const TRANSLATIONS = {
         nav_about: "About",
         nav_skills: "Skills",
         nav_projects: "Projects",
+        nav_portfolio: "Portfolio",
         nav_experience: "Experience",
         nav_contact: "Contact",
         // Hero
@@ -224,8 +225,11 @@ const TRANSLATIONS = {
         skill_cat3_label: "CREATIVE_TOOLS",
         skill_cat3_title: "Tools & Design",
         // Projects
-        projects_label: "SELECTED_WORKS",
-        projects_title: "Featured Projects",
+        projects_label: "MY_PORTFOLIO",
+        projects_title: "A closer look at my work",
+        portfolio_home_desc: "Explore the systems and applications I’ve designed and built, from workflow tools to full-stack business platforms.",
+        portfolio_home_button: "Explore my portfolio",
+        portfolio_home_count: "Projects & systems",
         // Experience
         exp_label: "CAREER_PATH",
         exp_title: "Experience",
@@ -272,6 +276,7 @@ const TRANSLATIONS = {
         nav_about: "เกี่ยวกับ",
         nav_skills: "ทักษะ",
         nav_projects: "ผลงาน",
+        nav_portfolio: "พอร์ตโฟลิโอ",
         nav_experience: "ประสบการณ์",
         nav_contact: "ติดต่อ",
         // Hero
@@ -300,8 +305,11 @@ const TRANSLATIONS = {
         skill_cat3_label: "เครื่องมือสร้างสรรค์",
         skill_cat3_title: "เครื่องมือ & ดีไซน์",
         // Projects
-        projects_label: "ผลงานคัดสรร",
-        projects_title: "โปรเจกต์เด่น",
+        projects_label: "ผลงานของผม",
+        projects_title: "เจาะลึกผลงานและโปรเจกต์",
+        portfolio_home_desc: "ชมระบบและแอปพลิเคชันที่ผมออกแบบและพัฒนา ตั้งแต่เครื่องมือจัดการ Workflow ไปจนถึงแพลตฟอร์มธุรกิจแบบ Full-Stack",
+        portfolio_home_button: "ดูผลงานทั้งหมด",
+        portfolio_home_count: "โปรเจกต์และระบบ",
         // Experience
         exp_label: "เส้นทางอาชีพ",
         exp_title: "ประสบการณ์",
@@ -592,6 +600,8 @@ function initNavbar() {
         moveIndicator(target);
     }
 
+    const sections = document.querySelectorAll('section[id]');
+
     // Mobile toggle
     if (navToggle && navLinks) {
         navToggle.addEventListener('click', () => {
@@ -600,13 +610,23 @@ function initNavbar() {
         });
     }
 
-    // Click: set active immediately, block observer briefly
-    let clicking = false;
+    // Keep the active navigation item aligned with the section at the viewport marker.
+    function updateActiveSection() {
+        const marker = window.scrollY + window.innerHeight * 0.4;
+        let currentSection = null;
+
+        sections.forEach(section => {
+            if (section.offsetTop <= marker) currentSection = section;
+        });
+
+        const id = currentSection ? currentSection.getAttribute('id') : null;
+        const link = id && pillGroup ? pillGroup.querySelector(`.nav-link[href="#${id}"]`) : null;
+        setActive(link ? `#${id}` : null);
+    }
+
     pillLinks.forEach(link => {
         link.addEventListener('click', () => {
             setActive(link.getAttribute('href'));
-            clicking = true;
-            setTimeout(() => { clicking = false; }, 1000);
             if (navToggle && navLinks) {
                 navToggle.classList.remove('active');
                 navLinks.classList.remove('active');
@@ -621,39 +641,12 @@ function initNavbar() {
         });
     }
 
-    // IntersectionObserver — fires when section center crosses mid-viewport
-    const sections = document.querySelectorAll('section[id]');
-    const observer = new IntersectionObserver((entries) => {
-        if (clicking) return;
-        entries.forEach(entry => {
-            if (!entry.isIntersecting) return;
-            const id = entry.target.getAttribute('id');
-            const link = pillGroup ? pillGroup.querySelector(`.nav-link[href="#${id}"]`) : null;
-            if (link) setActive(`#${id}`);
-            else {
-                pillLinks.forEach(l => l.classList.remove('active'));
-                if (indicator) indicator.classList.remove('visible');
-            }
-        });
-    }, { rootMargin: '-35% 0px -55% 0px', threshold: 0 });
-    sections.forEach(s => observer.observe(s));
-
-    // Init indicator on load
-    setTimeout(() => {
-        const scrollY = window.scrollY + window.innerHeight * 0.4;
-        for (let i = sections.length - 1; i >= 0; i--) {
-            if (scrollY >= sections[i].offsetTop) {
-                const id = sections[i].getAttribute('id');
-                const link = pillGroup ? pillGroup.querySelector(`.nav-link[href="#${id}"]`) : null;
-                if (link) { setActive(`#${id}`); break; }
-            }
-        }
-    }, 500);
+    window.addEventListener('scroll', throttle(updateActiveSection, 80), { passive: true });
+    updateActiveSection();
 
     // Recalculate on resize
     window.addEventListener('resize', debounce(() => {
-        const active = pillGroup ? pillGroup.querySelector('.nav-link.active') : null;
-        moveIndicator(active);
+        updateActiveSection();
     }, 150), { passive: true });
 }
 
@@ -1084,6 +1077,19 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             const top = target.getBoundingClientRect().top + window.scrollY - offset;
             window.scrollTo({ top, behavior: 'smooth' });
         }
+    });
+});
+
+document.querySelectorAll('a[href]').forEach(link => {
+    link.addEventListener('click', event => {
+        if (event.defaultPrevented || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
+        const destination = new URL(link.href, window.location.href);
+        const isSamePageAnchor = destination.pathname === window.location.pathname && destination.hash;
+        if (destination.protocol !== window.location.protocol || destination.origin !== window.location.origin || isSamePageAnchor) return;
+
+        document.body.classList.add('page-leaving');
+        event.preventDefault();
+        window.setTimeout(() => window.location.assign(destination.href), 180);
     });
 });
 

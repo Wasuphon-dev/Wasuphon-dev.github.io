@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ผลงานและโปรเจกต์ของ Wasuphon Thongsopon (Fluk)">
+    <title>Portfolio | Wasuphon Thongsopon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="portfolio-page">
+    <nav class="navbar scrolled" id="navbar" aria-label="Main navigation">
+        <div class="nav-container">
+            <a href="index.html#hero" class="nav-logo">FLUK<span>.dev</span></a>
+            <div class="nav-links" id="navLinks">
+                <div class="nav-pill-group">
+                    <a href="index.html#about" class="nav-link" data-i18n="nav_about">About</a>
+                    <a href="index.html#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
+                    <a href="index.html#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                    <a href="portfolio.html" class="nav-link active" aria-current="page" data-i18n="nav_portfolio">Portfolio</a>
+                    <a href="index.html#experience" class="nav-link" data-i18n="nav_experience">Experience</a>
+                </div>
+                <a href="index.html#contact" class="nav-link nav-link-btn" data-i18n="nav_contact">Contact</a>
+            </div>
+            <button class="lang-toggle" id="langToggle" aria-label="Toggle language">
+                <span class="lang-toggle-en">EN</span>
+                <span class="lang-toggle-divider">/</span>
+                <span class="lang-toggle-th">TH</span>
+            </button>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <main>
+        <section class="portfolio-hero">
+            <div class="container">
+                <div class="section-label" data-i18n="portfolio_eyebrow">SELECTED WORKS / 2026</div>
+                <h1 class="section-title"><span data-i18n="portfolio_title">Portfolio</span><br><span class="gradient-text" data-i18n="portfolio_subtitle">Selected Projects</span></h1>
+                <p class="portfolio-hero-copy" data-i18n="portfolio_intro">
+                    รวบรวมโปรเจกต์ที่ได้มีส่วนร่วมตั้งแต่การวิเคราะห์ ออกแบบ พัฒนา
+                    ทดสอบ ไปจนถึงการนำระบบไปใช้งานจริง
+                </p>
+                <a class="btn btn-primary" href="#portfolio-projects" data-i18n="portfolio_browse">Browse projects</a>
+            </div>
+        </section>
+
+        <section class="portfolio-list" id="portfolio-projects">
+            <div class="container">
+                <div class="section-label" data-i18n="portfolio_count">PROJECTS / 01—09</div>
+                <div class="portfolio-project-grid">
+                    <article class="portfolio-project-card">
+                        <div class="portfolio-project-copy">
+                            <div class="portfolio-project-number">PROJECT 01</div>
+                            <div class="portfolio-project-type">FULL-STACK DEVELOPMENT</div>
+                            <h2 class="portfolio-project-title">Service Management &amp; Repair Workflow System</h2>
+                            <p class="portfolio-project-description" data-i18n="project01_summary">
+                                ระบบบริหารงานบริการและงานซ่อม เชื่อมโยงการนัดหมาย การประเมินงาน
+                                การติดตามสถานะ การจัดการอะไหล่ และรายงานไว้ในระบบเดียว
+                            </p>
+                            <div class="portfolio-tags" aria-label="เทคโนโลยีหลัก">
+                                <span>PHP</span><span>JavaScript</span><span>PostgreSQL</span><span>REST API</span>
+                            </div>
+                            <a class="btn btn-primary" href="project-01.html" style="margin-top: 28px;">
+                                <span data-i18n="project_details">View project details</span> <span aria-hidden="true">→</span>
+                            </a>
+                        </div>
+                        <div class="portfolio-project-art" role="img" aria-label="ภาพประกอบลำดับงานของระบบบริการและงานซ่อม">
+                            <div class="portfolio-art-window">
+                                <div class="portfolio-art-window-header">
+                                    <span>SERVICE WORKFLOW</span>
+                                    <span class="portfolio-art-status">TRACKING</span>
+                                </div>
+                                <div class="portfolio-art-flow">
+                                    <div class="portfolio-art-step"><strong>01 / INTAKE</strong><span>รับนัดหมาย</span></div>
+                                    <div class="portfolio-art-step"><strong>02 / ASSESS</strong><span>ประเมินงาน</span></div>
+                                    <div class="portfolio-art-step"><strong>03 / REPAIR</strong><span>ดำเนินงาน</span></div>
+                                    <div class="portfolio-art-step"><strong>04 / REVIEW</strong><span>ตรวจสอบ</span></div>
+                                    <div class="portfolio-art-step"><strong>05 / CLOSE</strong><span>ปิดงาน</span></div>
+                                    <div class="portfolio-art-step"><strong>06 / REPORT</strong><span>สรุปรายงาน</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <div class="portfolio-project-grid-extra" id="portfolioProjectsExtra"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-container">
+            <p class="footer-copy">&copy; 2026 Wasuphon Thongsopon. All rights reserved.</p>
+            <a class="footer-tag" href="index.html#hero" data-i18n="footer_home">Back to home ↑</a>
+        </div>
+    </footer>
+    <script src="portfolio-projects.js"></script>
+    <script src="portfolio.js"></script>
+</body>
+</html>

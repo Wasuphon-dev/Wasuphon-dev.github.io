@@ -50,6 +50,7 @@
                     <a href="#about" class="nav-link" data-i18n="nav_about">About</a>
                     <a href="#skills" class="nav-link" data-i18n="nav_skills">Skills</a>
                     <a href="#projects" class="nav-link" data-i18n="nav_projects">Projects</a>
+                    <a href="portfolio.html" class="nav-link" data-i18n="nav_portfolio">Portfolio</a>
                     <a href="#experience" class="nav-link" data-i18n="nav_experience">Experience</a>
                 </div>
                 <a href="#contact" class="nav-link nav-link-btn" data-i18n="nav_contact">Contact</a>
@@ -356,21 +357,28 @@
     <!-- ========================================== -->
     <section id="projects" class="section projects">
         <div class="container">
-            <div class="section-header-row">
-                <div>
-                    <div class="section-label" data-reveal="fade-right" data-i18n="projects_label">SELECTED_WORKS</div>
-                    <h2 class="section-title" data-reveal="fade-right" data-delay="100" data-i18n="projects_title">Featured Projects</h2>
+            <div class="portfolio-showcase" data-reveal="scale">
+                <div class="portfolio-showcase-copy">
+                    <div class="section-label" data-i18n="projects_label">MY_PORTFOLIO</div>
+                    <h2 class="portfolio-showcase-title" data-i18n="projects_title">A closer look at my work</h2>
+                    <p class="portfolio-showcase-description" data-i18n="portfolio_home_desc">
+                        Explore the systems and applications I’ve designed and built, from workflow tools to full-stack business platforms.
+                    </p>
+                    <a class="btn btn-primary portfolio-showcase-button" href="portfolio.html">
+                        <span data-i18n="portfolio_home_button">Explore my portfolio</span>
+                        <span class="portfolio-showcase-arrow" aria-hidden="true">→</span>
+                    </a>
                 </div>
-                <div class="project-filters" data-reveal="fade-left" data-delay="200">
-                    <button class="filter-btn active" data-filter="all">ALL</button>
-                    <button class="filter-btn" data-filter="web">WEB</button>
-                    <button class="filter-btn" data-filter="app">APP</button>
-                    <button class="filter-btn" data-filter="system">SYSTEM</button>
+                <div class="portfolio-showcase-art" aria-hidden="true">
+                    <div class="portfolio-showcase-orbit"></div>
+                    <div class="portfolio-showcase-count">
+                        <span class="portfolio-showcase-count-label">SELECTED WORKS</span>
+                        <strong>09</strong>
+                        <span class="portfolio-showcase-count-caption" data-i18n="portfolio_home_count">Projects &amp; systems</span>
+                    </div>
+                    <div class="portfolio-showcase-code portfolio-showcase-code-top">FULL-STACK / WEB / PWA</div>
+                    <div class="portfolio-showcase-code portfolio-showcase-code-bottom">DESIGN · BUILD · DELIVER</div>
                 </div>
-            </div>
-            <!-- Project cards are rendered by JavaScript from the projects data array -->
-            <div class="projects-grid" id="projectsGrid">
-                <!-- Cards injected by script.js -->
             </div>
         </div>
     </section>
