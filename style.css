@@ -2290,27 +2290,69 @@ body.cursor-hover .cursor-ring {
 
     .portfolio-showcase {
         grid-template-columns: 1fr;
+        min-height: 0;
     }
 
     .portfolio-showcase-copy {
-        padding: 38px 28px 8px;
+        padding: 30px 24px 0;
     }
 
     .portfolio-showcase-title {
+        margin-bottom: 12px;
+        font-size: clamp(1.9rem, 7.5vw, 2.25rem);
         letter-spacing: -0.8px;
     }
 
+    .portfolio-showcase-description {
+        margin-bottom: 18px;
+        font-size: 0.95rem;
+        line-height: 1.65;
+    }
+
+    .portfolio-showcase-button {
+        width: fit-content;
+        min-height: 48px;
+    }
+
     .portfolio-showcase-art {
-        min-height: 260px;
+        min-height: 190px;
+        border-top: 1px solid rgba(96, 165, 250, 0.12);
+    }
+
+    .portfolio-showcase-orbit {
+        width: 205px;
+        height: 205px;
     }
 
     .portfolio-showcase-count {
-        width: 175px;
-        height: 175px;
+        width: 148px;
+        height: 148px;
     }
 
     .portfolio-showcase-count strong {
-        font-size: 4.4rem;
+        font-size: 3.7rem;
+    }
+
+    .portfolio-showcase-count-label,
+    .portfolio-showcase-count-caption {
+        font-size: 0.5rem;
+        letter-spacing: 1.2px;
+    }
+
+    .portfolio-showcase-code {
+        padding: 7px 9px;
+        font-size: 0.48rem;
+        letter-spacing: 1.2px;
+    }
+
+    .portfolio-showcase-code-top {
+        top: 10%;
+        right: 4%;
+    }
+
+    .portfolio-showcase-code-bottom {
+        bottom: 10%;
+        left: 4%;
     }
 
     .portfolio-hero {
